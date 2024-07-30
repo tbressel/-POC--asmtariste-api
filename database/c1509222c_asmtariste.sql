@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 16 juil. 2024 à 18:44
+-- Généré le : lun. 22 juil. 2024 à 10:45
 -- Version du serveur : 10.6.17-MariaDB-cll-lve
 -- Version de PHP : 8.1.26
 
@@ -46,7 +46,8 @@ INSERT INTO `articles` (`id_articles`, `title`, `creation_date`, `description`, 
 (1, 'ASMtariSTe est ouvert !', '2024-06-27', 'ASMtariste ouvre ses portes pour tout ceux qui souhaitent apprendre la programmation en assembleur 68000 sur Atari ST. ', '1720686646713.png', 1, 2, 1),
 (2, 'À propos du BIOS', '2024-06-27', 'Le BIOS (Basic Input/Output System) représente l\'interface de plus bas niveau entre le système d\'exploitation de l\'Atari et le matériel, et est appelé via le Trap #13 du 680X0. Il est préférable que ces fonctions ne soient pas utilisées par les programmes applicatifs, car des fonctions beaucoup plus puissantes à un niveau supérieur sont disponibles pour fournir de meilleures alternatives.', '1720686675098.jpg', 1, 3, 1),
 (3, 'Le Système d\'Exploitation TOS', '2024-06-27', 'Le système d\'exploitation TOS (The Operating System) peut être subdivisé en différentes sections. La communication avec les utilisateurs est réalisée via GEM, qui offre une interface utilisateur confortable et se compose des fonctions AES et VDI.', '1720686675098.jpg', 1, 3, 1),
-(4, 'Savoir configurer les outils de développement', '2024-06-27', 'Avant toute chose, pour commencer à écrire du code, tu auras besoin de plusieurs outils et il te faudra apprendre à les utiliser. Ces outils peuvent être soit sur PC, soit directement sur Atari ST.', '1720686661546.jpg', 1, 1, 1);
+(4, 'Savoir configurer les outils de développement', '2024-06-27', 'Avant toute chose, pour commencer à écrire du code, tu auras besoin de plusieurs outils et il te faudra apprendre à les utiliser. Ces outils peuvent être soit sur PC, soit directement sur Atari ST.', '1720686661546.jpg', 1, 1, 1),
+(5, 'L\'octet sous toutes ses formes', '2024-07-20', 'La maîtrise des conversions entre les systèmes décimal, binaire et hexadécimal est cruciale pour comprendre et manipuler les données en informatique. Nous reviendrons sur ces concepts pour démontrer leurs avantages dans divers contextes. Nous parlerons ici des différentes façons d\'écrire la valeur d\'un octet. Sans connaissance à ce sujet, vous n\'irez pas très loin dans votre apprentissage de l\'assembleur.', '1721474650895.webp', 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,8 @@ CREATE TABLE `certificates` (
 INSERT INTO `certificates` (`id_certificates`, `creationDate`, `note`) VALUES
 (7, '2024-07-16', 20),
 (8, '2024-07-16', 20),
-(9, '2024-07-16', 20);
+(9, '2024-07-16', 20),
+(10, '2024-07-19', 16);
 
 -- --------------------------------------------------------
 
@@ -140,7 +142,47 @@ INSERT INTO `choices` (`id_choices`, `choice_name`, `answer`, `id_questions`) VA
 (31, 'The Original System', 0, 10),
 (32, 'Un type de périphérique de stockage', 0, 11),
 (33, 'Un protocole de communication', 1, 11),
-(34, 'Une carte graphique', 0, 11);
+(34, 'Une carte graphique', 0, 11),
+(35, '203', 1, 12),
+(36, '191', 0, 12),
+(37, '196', 0, 12),
+(38, '178', 0, 12),
+(39, '$4F', 0, 13),
+(40, '$4B', 1, 13),
+(41, '$6B', 0, 13),
+(42, '$5B', 0, 13),
+(43, '%10010011', 0, 14),
+(44, '%11000011', 0, 14),
+(45, '%10100001', 0, 14),
+(46, '%10100011', 1, 14),
+(47, '192', 0, 15),
+(48, '128', 0, 15),
+(49, '224', 1, 15),
+(50, '240', 0, 15),
+(51, '64', 0, 16),
+(52, '128', 1, 16),
+(53, '32', 0, 16),
+(54, '16', 0, 16),
+(55, '%00000101', 1, 17),
+(56, '%00001010', 0, 17),
+(57, '%00001111', 0, 17),
+(58, '%00000000', 0, 17),
+(59, '$FE', 0, 18),
+(60, '$FF', 1, 18),
+(61, '$F0', 0, 18),
+(62, '$00', 0, 18),
+(63, '%10100111', 1, 19),
+(64, '%10110011', 0, 19),
+(65, '%10011111', 0, 19),
+(66, '%11010011', 0, 19),
+(67, '%0100', 0, 20),
+(68, '%1010', 0, 20),
+(69, '%1100', 0, 20),
+(70, '%0110', 1, 20),
+(71, '511', 1, 21),
+(72, '255', 0, 21),
+(73, '256', 0, 21),
+(74, '512', 0, 21);
 
 -- --------------------------------------------------------
 
@@ -225,7 +267,16 @@ INSERT INTO `contents` (`id_contents`, `title_left`, `title_right`, `title_cente
 (51, '', '', '', '', '', '', NULL, NULL, '1719527007777.png', '', '', '', 3, 5, 4);
 INSERT INTO `contents` (`id_contents`, `title_left`, `title_right`, `title_center`, `text_left`, `text_right`, `text_center`, `image_left`, `image_right`, `image_center`, `attachement_left`, `attachement_right`, `attachement_center`, `page`, `id_templates`, `id_articles`) VALUES
 (52, '', '', '', '', '', 'À partir de maintenant, tous les fichiers que tu copieras dans le dossier <span class=\"bold\">hard_drive/D</span> de ton PC seront visibles également dans le GEM de ton émulateur ! À toi d’en créer le nombre que tu veux du moment que ça te permette d’être organisé pour la suite !<br>\n<br>\n<br>\n<span class=\"underline\">3 – Le clavier</span><br>\n<br>\nPour finir, la configuration du clavier dans l’émulateur doit être réglée sur  <span class=\"color-green\">Scancode</span>. Cela te simplifiera l’écriture du code en utilisant les touches réelles de ton clavier PC.<br>\nVoilà, c’est terminé ! À partir de maintenant, tu possèdes un <span class=\"bold\">Atari 1040 ST</span> dans ton PC ! Nous allons pouvoir passer à la suite !', NULL, NULL, NULL, '', '', '', 3, 4, 4),
-(53, '', '', '', '', '', '', NULL, NULL, '1719527081890.png', '', '', '', 3, 5, 4);
+(53, '', '', '', '', '', '', NULL, NULL, '1719527081890.png', '', '', '', 3, 5, 4),
+(54, '', '', '', '', '', 'Dans ton premier cours <span class=\"italic\">« Savoir configurer ses outils de développement »</span>, je te parlais de la transformation de ton code source assembleur en <span class=\"color-red\">langage machine</span>, c\'est-à-dire en <span class=\"color-red\">binaire</span>. Le binaire est une suite de 0 et de 1. <span class=\"color-red\">Chaque 0 et chaque 1 sont ce que l\'on appelle un bit</span>.<br>\nPour faciliter la gestion des informations, ces valeurs binaires sont regroupées en ensembles de 8 bits, appelés octets. Un bit est la plus petite unité d\'information et peut être soit 0 soit 1. Un octet, contenant 8 bits, peut représenter 256 valeurs différentes, allant de 0 à 255. Nous explorerons plus en détail comment ces bits se combinent pour former des valeurs et comment ces valeurs sont utilisées par l\'ordinateur.<br>\n<br>\n<div class=\"border-yellow\"><p>Donc, pour résumer, retiens ceci :<br>\n* Langage machine = langage binaire<br>\n* Langage binaire = une suite de 0 et de 1 (appelés bits)<br>\n* Un octet = 8 bits<br>\n* La valeur d\'un octet peut aller de 0 à 255</p></div><br>\n', NULL, NULL, NULL, '', '', '', 1, 4, 5),
+(56, '', '', '', 'Chaque position numérotée de 0 à 7, de droite à gauche, peut contenir un 0 ou un 1, formant ainsi un octet.<br>\nPourquoi est-ce important ? <span class=\"bold\">Parce que le processeur lit ces octets en mémoire vive (RAM) comme des instructions</span>. Pour lui, cette séquence d\'octets constitue un langage de commande. Chaque octet (ou ensemble d\'octets) est associé à une action spécifique que le processeur exécute.', '', '', NULL, '1721478870274.png', NULL, '', '', '', 1, 1, 5),
+(57, '', '', '', '', '', 'Considérons l\'exemple de l\'instruction <span class=\"bold\">NOP</span>, l\'une des plus simples pour le processeur 68000. <span class=\"bold\">NOP</span> signifie \"ne rien faire\". Lorsque tu écris <span class=\"bold\">NOP</span> dans ton éditeur de code assembleur, cela se traduit par 2 octets consécutifs dont les valeurs sont respectivement 78 et 113. <span class=\"bold\"><span class=\"color-red\">Ces deux valeurs de 8 bits (autrement dit, \"ces deux octets de 8 bits\") combinées ensemble forment une instruction de 16 bits</span></span>. Cette instruction est appelée <span class=\"bold\">opcode</span>. Ces deux octets sont ensuite placés en RAM (mémoire vive) ou sauvegardés dans un fichier, selon tes besoins.<br>\nAinsi, lorsque le 68000 rencontre ces deux octets avec les valeurs 78 et 113, il les interprète comme l\'instruction <span class=\"bold\">NOP</span>. D\'autres valeurs auront des significations différentes, bien sûr.', NULL, NULL, NULL, '', '', '', 1, 4, 5),
+(58, 'Le Système Décimal', 'Le Système Binaire', '', 'Lorsque nous utilisons des chiffres dans la vie quotidienne, nous utilisons <span class=\"color-red\">le système décimal</span>. Ce système utilise dix symboles : 0, 1, 2, 3, 4, 5, 6, 7, 8 et 9. Par exemple, les nombres que nous connaissons et utilisons couramment sont écrits en décimal : 1, 2, 3, 10, 100, 150, 200, etc.', 'Contrairement au système décimal, il n\'utilise que deux symboles : 0 et 1. Comment je te l\'ai déjà dit à la page précédente chaque 0 ou 1 est appelé un \"bit\"  et un groupe de 8 bits forme un \"octet\" <span class=\"italic\">(oui je sais ... je me répète mais c\'est comme çà que çà va finir par rentrer dans ta tête)</span>. <br>\nVoici un exemple d\'un nombre en binaire : <span class=\"bold\">%10100111</span>. <br>\n<span class=\"color-red\">Le caractère % avant la suite de bits indique que le nombre est écrit en binaire.</span>', '', NULL, NULL, NULL, '', '', '', 2, 3, 5),
+(60, 'Conversion binaire en décimale', '', '', 'Revenons à notre octet. La valeur d\'un octet dépend de ce qu\'il contient. Par exemple, l\'octet <span class=\"bold\">%10100111</span> en binaire peut être converti en décimal. Pour comprendre cela, nous devons connaître la valeur de chaque bit. Chaque position de bit a une valeur spécifique <span class=\"bold\">qui se compte toujours de la droite vers la gauche</span> : Le bit le plus à droite (bit 0) a une valeur de 1, le suivant (bit 1) a une valeur de 2, le suivant (bit 2) a une valeur de 4 etc.<br>\nEn additionnant les valeurs des bits qui sont à 1, nous obtenons la valeur décimale de l\'octet. Pour <span class=\"bold\">%10100111</span>, nous avons : 128 + 32 + 4 + 2 + 1 = <span class=\"bold\">167</span><br>\nLe schéma de droite est assez facile à comprendre <span class=\"italic\">(que j\'ai d\'ailleurs emprunté au site <a class=\"link\" href=\"https://asmtradcpc.zilog.fr/\" target=\"blank\">https://asmtradcpc.zilog.fr/</a>).</span>', '', '', NULL, '1721577202083.png', NULL, '', '', '', 2, 1, 5),
+(61, '', '', 'Le Système Hexadécimal', '', '', 'Il existe également un système de numération appelé hexadécimal, qui est souvent utilisé en informatique, sans une compréhension parfaite de ce système tu n\'iras pas bien loin. Ce système utilise seize symboles : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E et F.<br>\nVoici comment cela fonctionne :<br>\n* En décimal, nous comptons de 0 à 9, puis passons à 10.<br>\n* En hexadécimal, nous comptons de 0 à 9, puis nous continuons avec A (10 en décimal), B (11 en décimal), et ainsi de suite jusqu\'à F (15 en décimal).<br>\nVoici une séquence hexadécimale : <span class=\"bold\">$0, $1, $2, ..., $9, $A, $B, $C, $D, $E, $F</span><br>\nAprès $F, nous passons à $10 (16 en décimal), puis $11, $12, ... jusqu\'à $1F. Ce processus continue jusqu\'à $FF, qui équivaut à 255 en décimal.<br>\n<span class=\"color-red\">Le caractère $ avant la suite de bits indique que le nombre est écrit en hexadécimal.</span>', NULL, NULL, NULL, '', '', '', 3, 4, 5),
+(62, '', 'Conversion décimal en binaire', '', '', 'C\'est tout aussi simple de convertir un nombre décimal en binaire. Prenons l\'exemple du nombre décimal 167. Le principe est simple : <span class=\"bold\"><span class=\"color-red\">on soustrait la valeur du bit la plus grande possible</span></span>. Donc, pour 167, on peut soustraire 128, et on met ce bit à \"1\". <br>\nTu vas me dire <span class=\"italic\">\"oui, mais on peut aussi utiliser 64\"</span>. Oui, mais NON, <span class=\"bold\">il faut que ce soit la valeur la plus grande possible</span>, donc 128.<br>\nOn doit procéder ainsi jusqu\'à ce que l\'on obtienne un reste de 0. Regarde à nouveau le schéma de gauche, c\'est assez simple à comprendre.', '', '1721579115783.png', NULL, NULL, '', '', '', 2, 6, 5),
+(63, 'Conversion binaire en hexadécimal', '', '', 'Cette fois-ci, nous allons convertir notre octet binaire en hexadécimal. Je te rappelle que l\'hexadécimal est le système de numération que tu verras, par exemple, dans le débogueur de l\'assembleur DevPac.<br>\n<br>\nPour convertir un nombre binaire en hexadécimal (qu\'on appellera \"hexa\"), il suffit de <span class=\"color-red\">diviser l\'octet en deux parties</span>. Chaque partie est appelée un <span class=\"bold\">\"quartet\"</span> <span class=\"italic\">(oui, \"quartet\" comme \"4\" et \"octet\" comme \"8\", au cas où tu ne l\'aurais pas remarqué ;) )</span>. À gauche, en <span class=\"color-green\">vert</span>, tu as ce que l\'on appelle le <span class=\"color-green\">quartet de poids fort</span>, et à droite, en <span class=\"color-red\">rouge</span>, le <span class=\"color-red\">quartet de poids faible</span>. <br>\nEnsuite c\'est tout simple : il suffit d\'additionner les valeurs des bits de chaque quartet. Leur somme te donnera 2 valeurs <span class=\"italic\">(rappelle-toi que 10 en décimal correspond à $A en hexa)</span>.', '', '', NULL, '1721580830113.png', NULL, '', '', '', 3, 1, 5),
+(64, '', '', 'Les valeurs supérieures à 255', '', '', 'Un octet est une série de 8 bits <span class=\"italic\">(oui, je sais, je le répète encore, et je comprends si tu commences à te lasser ! C\'est bon signe !)</span>. La valeur maximale d\'un octet est 255 <span class=\"italic\">(n\'oublie pas que 0 compte aussi comme une valeur)</span>. Mais on peut représenter des valeurs plus grandes en combinant plusieurs octets.<br>\n<br>\n<span class=\"underline\"><span class=\"bold\">Voici quelques définitions :</span></span><br>\n<div class=\"border-yellow\"><p>Une \"valeur 8 bits\" est un nombre entre 0 et 255 et utilise 1 octet.<br>\nUne \"valeur 16 bits\" est un nombre entre 0 et 65 535 et utilise 2 octets.<br>\nLorsque la valeur dépasse 255, elle utilise deux octets.</p></div><br>\nDans ce cas, <span class=\"bold\"><span class=\"color-red\">l\'octet de gauche est appelé le \"poids fort\" et l\'octet de droite est appelé le \"poids faible\"</span></span>.<br>\nLe poids faible représente une valeur de 0 à 255, tandis que le poids fort multiplie cette valeur par 256.<br>\n<br>\n<span class=\"underline\">Mais que se passe-t-il lorsque l\'on dépasse 255 ?</span><br>\nEh bien, la valeur décimale 255 étant la plus grande pour 1 octet signifie que tous ses bits sont à 1 : <span class=\"bold\">%<span class=\"color-green\">11111111</span></span>. Si on fait la somme de la valeur de tous les bits, on obtient bien : <span class=\"bold\">128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255</span>.<br>\nOn peut aussi noter cette valeur en binaire <span class=\"underline\">en utilisant 2 octets</span> : <span class=\"bold\">%<span class=\"color-red\">00000000</span> <span class=\"color-green\">11111111</span> = 255</span>. <span class=\"color-red\">À gauche, tu as l\'octet de poids fort</span>, qui est égal à 0, et <span class=\"color-green\">à droite, le poids faible</span>, qui est à 255 pour le moment.<br>\n<br>\n<span class=\"bold\">Mais que se passe-t-il si tu ajoutes 1 à l\'octet de poids faible ?</span><br>\nTu obtiens <span class=\"bold\">%<span class=\"color-red\">00000001</span> <span class=\"color-green\">00000000</span></span>. Tous les bits qui étaient à \"1\" dans l\'octet de poids faible sont passés à \"0\"! De plus, tu remarques que le bit le plus faible de l\'octet de poids fort passe de \"0\" à \"1\".', NULL, NULL, NULL, '', '', '', 3, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -359,12 +410,22 @@ INSERT INTO `questions` (`id_questions`, `text`, `id_articles`, `isMultiple`) VA
 (3, 'Quel est le seul langage que l\'ordinateur comprend ?', 4, 0),
 (4, 'À quoi sert un éditeur de texte ?', 4, 0),
 (5, 'Quel est le rôle principal d\'un assembleur ?', 4, 0),
-(6, 'Où est stocké le code saisi dans l\'éditeur après l\'assemblage ?', 4, 0),
+(6, 'Que devient le code saisi dans l\'éditeur après l\'assemblage ?', 4, 0),
 (7, 'Où est stocké le code source saisi dans l\'éditeur ?', 4, 0),
 (8, 'Comment s\'appelle l\'assembleur édité par Hisoft ?', 4, 0),
 (9, 'Comment se nomme ce bureau tout vert lorsque l\'on allume un Atari ST ?', 4, 0),
 (10, 'Que désigne le TOS ?', 4, 0),
-(11, 'Que désigne ASCI pour l\'Atari ST ?', 4, 0);
+(11, 'Que désigne ASCI pour l\'Atari ST ?', 4, 0),
+(12, 'Quelle est la valeur décimale de l\'octet binaire `%11001011` ?', 5, 0),
+(13, 'Convertir le nombre décimal `75` en hexadécimal donne :', 5, 0),
+(14, 'Quelle est la valeur binaire du nombre hexadécimal `$A3` ?', 5, 0),
+(15, 'Quel est le résultat de la conversion binaire `%11100000` en décimal ?', 5, 0),
+(16, 'Quelle est la valeur en décimal du bit de poids fort (bit 7) dans l\'octet binaire `%01101001` ?', 5, 0),
+(17, 'Quel est l\'octet de poids faible dans la valeur 16 bits `%00001010 00000101` ?', 5, 0),
+(18, 'Quelle est la représentation hexadécimale de la valeur décimale `255` ?', 5, 0),
+(19, 'Quelle est la valeur binaire du nombre décimal `167` ?', 5, 0),
+(20, 'Quel est le quartet de poids fort dans l\'octet binaire `%01101001` ?', 5, 0),
+(21, 'Lorsqu\'on convertit le nombre binaire `%00000001 11111111` en décimal, quelle est la valeur totale ?', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -419,7 +480,12 @@ INSERT INTO `tags` (`id_tags`, `color`, `label`) VALUES
 (14, '#FF69B4', 'Scrolling'),
 (15, '#FFDAB9', 'Blitter'),
 (16, '#4B0082', 'Interruptions'),
-(17, '#FF1493', 'TOS');
+(17, '#FF1493', 'TOS'),
+(18, '#9400D3', 'Octet'),
+(19, '#FFD700', 'Décimal'),
+(20, '#7CFC00', 'Binaire'),
+(21, '#FF4500', 'Hexadécimal'),
+(22, '#7FFFD4', 'Bit');
 
 -- --------------------------------------------------------
 
@@ -511,6 +577,7 @@ CREATE TABLE `to_graduate` (
 INSERT INTO `to_graduate` (`id_articles`, `id_users`, `id_certificates`) VALUES
 (4, 1, 7),
 (4, 3, 8),
+(4, 7, 10),
 (4, 10, 9);
 
 -- --------------------------------------------------------
@@ -532,7 +599,12 @@ INSERT INTO `to_have` (`id_articles`, `id_tags`) VALUES
 (1, 4),
 (2, 7),
 (3, 17),
-(4, 13);
+(4, 13),
+(5, 18),
+(5, 19),
+(5, 20),
+(5, 21),
+(5, 22);
 
 -- --------------------------------------------------------
 
@@ -691,7 +763,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id_articles` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_articles` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `categories`
@@ -703,19 +775,19 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT pour la table `certificates`
 --
 ALTER TABLE `certificates`
-  MODIFY `id_certificates` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_certificates` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `choices`
 --
 ALTER TABLE `choices`
-  MODIFY `id_choices` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_choices` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT pour la table `contents`
 --
 ALTER TABLE `contents`
-  MODIFY `id_contents` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id_contents` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT pour la table `disk_units`
@@ -745,7 +817,7 @@ ALTER TABLE `menu_admin`
 -- AUTO_INCREMENT pour la table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id_questions` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_questions` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `role`
@@ -757,7 +829,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT pour la table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id_tags` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_tags` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT pour la table `templates`

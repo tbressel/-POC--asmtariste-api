@@ -230,7 +230,6 @@ api.get('/last-certificates/', (req, res) => {
             }
             else {
                 const queryResult = results;
-                console.log(queryResult);
                 let medalType = '';
                 let medalColour = '';
                 let courseLevel = 1;
@@ -532,7 +531,8 @@ api.post('/submit-results/:id', token_1.authToken, (req, res) => {
                 // compare number of wrong answers (choicesForms) with user answers (choicesResults)
                 const wrongAnswers = choicesForms.filter(value => !choicesResults.includes(value));
                 // calculate the total points
-                let totalPoints = goodAnswers.length - wrongAnswers.length;
+                let totalPoints = goodAnswers.length;
+                // let totalPoints: number = goodAnswers.length - wrongAnswers.length;
                 // prevent negative points
                 if (totalPoints < 0) {
                     totalPoints = 0;
@@ -557,6 +557,8 @@ api.post('/submit-results/:id', token_1.authToken, (req, res) => {
                 }
                 // Send the response to the client
                 res.status(200).json({
+                    goodAnswers: goodAnswers,
+                    wrongAnswers: wrongAnswers,
                     formResults: choicesForms,
                     answers: choicesResults,
                     note: totalSurVingt

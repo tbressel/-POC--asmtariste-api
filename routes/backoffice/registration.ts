@@ -419,7 +419,7 @@ api.post('/register/login', (req: Request, res: Response) => {
                         email: queryResult[0].email
                     },
                     refreshKey,
-                    { expiresIn: '2h' });
+                    { expiresIn: tokenTime });
 
 
                 // Add the token to the user information
