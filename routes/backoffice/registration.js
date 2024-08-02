@@ -329,7 +329,7 @@ api.post('/register/login', (req, res) => {
                     lastname: queryResult[0].lastname,
                     username: queryResult[0].username,
                     email: queryResult[0].email
-                }, refreshKey, { expiresIn: '2h' });
+                }, refreshKey, { expiresIn: tokenTime });
                 // Add the token to the user information
                 let userSession = {
                     firstname: "",
