@@ -223,9 +223,9 @@ api.get('/average-certificate/', (req, res) => {
             'note', certificates.note,
             'medal', 
             CASE 
-                WHEN certificates.note <= 15 THEN 'green-bronze.webp'
-                WHEN certificates.note BETWEEN 16 AND 18 THEN 'green-silver.webp'
-                WHEN certificates.note >= 19 THEN 'green-gold.webp'
+                WHEN certificates.note <= 16 THEN 'bronze-green.webp'
+                WHEN certificates.note BETWEEN 17 AND 18 THEN 'silver-green.webp'
+                WHEN certificates.note >= 19 THEN 'gold-green.webp'
                 ELSE 'none'
             END
         )
@@ -352,10 +352,10 @@ api.get('/last-certificates/', (req, res) => {
                 let medalUrl = '';
                 for (const item of queryResult) {
                     // Détermination du type de médaille basée sur la note
-                    if (item.note <= 15) {
+                    if (item.note <= 16) {
                         medalType = 'bronze';
                     }
-                    else if (item.note >= 16 && item.note <= 18) {
+                    else if (item.note >= 17 && item.note <= 18) {
                         medalType = 'silver';
                     }
                     else if (item.note >= 19) {
